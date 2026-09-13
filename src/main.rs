@@ -21,6 +21,7 @@ const MAX_TOTAL_BYTES: usize = 64 * 1024 * 1024;
     version,
     about = "A bounded, schema-less snapshot of Linux /proc and /sys as JSON."
 )]
+
 struct Cli {
     #[arg(long, default_value = "/proc", value_name = "PATH")]
     proc_root: PathBuf,
