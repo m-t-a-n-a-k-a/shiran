@@ -18,12 +18,6 @@ Shiran is distributed as a single Linux binary.
 curl -L https://github.com/m-t-a-n-a-k-a/shiran/releases/latest/download/shiran-x86_64-linux -o shiran && chmod +x shiran
 ```
 
-### ARM64
-
-```sh
-curl -L https://github.com/m-t-a-n-a-k-a/shiran/releases/latest/download/shiran-aarch64-linux -o shiran && chmod +x shiran
-```
-
 Optionally move it somewhere in your `PATH`:
 
 ```sh
