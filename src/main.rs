@@ -430,10 +430,10 @@ fn relative_key(root: &Path, path: &Path) -> String {
 mod tests {
     use super::*;
 
-    const STATUS_VALID: &str =　"Name:\tshiran\nUid:\t1000\t1001\t1002\t1003\nGid:\t2000\t2001\t2002\t2003\n";
+    const STATUS_VALID: &str = "Name:\tshiran\nUid:\t1000\t1001\t1002\t1003\nGid:\t2000\t2001\t2002\t2003\n";
     const STATUS_NO_UID: &str = "Gid:\t2000\t2000\t2000\t2000\n";
     const STATUS_NO_GID: &str = "Uid:\t1000\t1000\t1000\t1000\n";
-    const STATUS_BAD_UID: &str =　"Uid:\tbad\t1000\t1000\t1000\nGid:\t2000\t2000\t2000\t2000\n";
+    const STATUS_BAD_UID: &str = "Uid:\tbad\t1000\t1000\t1000\nGid:\t2000\t2000\t2000\t2000\n";
 
     fn context(uid: u32, euid: u32, gid: u32, egid: u32) -> ExecutionContext {
         ExecutionContext {
