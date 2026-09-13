@@ -171,8 +171,7 @@ fn read_execution_context() -> Result<ExecutionContext, String> {
     let status = fs::read_to_string("/proc/self/status")
         .map_err(|error| format!("failed to read /proc/self/status: {error}"))?;
 
-    parse_execution_context(&status)
-        .ok_or_else(|| "invalid /proc/self/status".to_string())
+    parse_execution_context(&status).ok_or_else(|| "invalid /proc/self/status".to_string())
 }
 
 fn parse_execution_context(status: &str) -> Option<ExecutionContext> {
@@ -322,12 +321,7 @@ fn capture_symlink(path: &Path) -> Entry {
     }
 }
 
-fn capture_file(
-    path: &Path,
-    metadata: &Metadata,
-    limits: Limits,
-    budget: &mut Budget,
-) -> Entry {
+fn capture_file(path: &Path, metadata: &Metadata, limits: Limits, budget: &mut Budget) -> Entry {
     if metadata.len() > limits.max_entry_bytes as u64 {
         return Entry::Excluded {
             reason: Reason::SizeLimit,
@@ -430,6 +424,7 @@ fn relative_key(root: &Path, path: &Path) -> String {
 mod tests {
     use super::*;
 
+    #[rustfmt::skip]
     const STATUS_VALID: &str = "Name:\tshiran\nUid:\t1000\t1001\t1002\t1003\nGid:\t2000\t2001\t2002\t2003\n";
     const STATUS_NO_UID: &str = "Gid:\t2000\t2000\t2000\t2000\n";
     const STATUS_NO_GID: &str = "Uid:\t1000\t1000\t1000\t1000\n";
