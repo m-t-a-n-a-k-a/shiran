@@ -11,6 +11,7 @@ fn field<'a>(snapshot: &'a Value, root: &str, path: &str, field: &str) -> Option
 }
 
 #[test]
+#[rustfmt::skip]
 fn snapshot_cases() {
     let temp = tempdir().unwrap();
     let proc_root = temp.path().join("proc");
