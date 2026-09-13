@@ -3,6 +3,7 @@ name = "shiran"
 version = "0.1.0"
 edition = "2024"
 description = "A bounded, schema-less snapshot of Linux /proc and /sys."
+license = "Apache-2.0"
 
 [dependencies]
 clap = { version = "4", features = ["derive"] }
