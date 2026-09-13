@@ -27,6 +27,11 @@ jobs:
       - name: Check formatting
         run: cargo fmt --all -- --check
 
+      - name: Generate lockfile
+        run: |
+          cargo generate-lockfile
+          cat Cargo.lock
+
       - name: Run Clippy
         run: cargo clippy --locked --all-targets --all-features -- -D warnings
 
